@@ -1,0 +1,6 @@
+# Everything: collector, model job and dashboard
+-r requirements-collector.txt
+scikit-learn==1.5.2
+plotly==5.24.1
+# Pin the exact Gradio version once the dashboard is built and tested
+gradio>=5.9,<7

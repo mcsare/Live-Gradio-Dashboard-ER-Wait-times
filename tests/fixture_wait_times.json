@@ -1,0 +1,709 @@
+[
+ {
+  "id": "clp033k9o0000qo413bjy9a91",
+  "name": "Vancouver General Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "920 West 10th Ave, Vancouver, BC, V5Z 1M9",
+  "latitude": 49.262407,
+  "longitude": -123.124461,
+  "website": "https://www.vch.ca/en/location-service/emergency-department-vancouver-general-hospital",
+  "audience": "allAges",
+  "description": "Adult hospital.",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 180,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp03447z0001qo41ttu19nbt",
+  "name": "BC Children's Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "4480 Oak St., Entrance 55, Vancouver, BC V6H 3V4",
+  "latitude": 49.2454172,
+  "longitude": -123.1235782,
+  "website": "https://www.bcchildrens.ca/clinics-services/emergency-department",
+  "audience": "allAges",
+  "description": "Pediatric hospital.",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 180,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp1jhk0f0019qo40rmp9sryp",
+  "name": "Richmond Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "7000 Westminster Highway, Richmond, BC, V6X 1A2",
+  "latitude": 49.168873,
+  "longitude": -123.146325,
+  "website": "https://www.vch.ca/en/location-service/emergency-department-richmond-hospital",
+  "audience": "allAges",
+  "description": "Full service hospital",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 135,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp1ji98i001aqo409dikn0s1",
+  "name": "St. Paul's Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "1081 Burrard St, Vancouver, BC, V6Z 1Y6",
+  "latitude": 49.280596,
+  "longitude": -123.129001,
+  "website": "https://www.providencehealthcare.org/hospitals-residences/st-paul's-hospital",
+  "audience": "allAges",
+  "description": "Full service hospital.",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 90,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp1jjdg4001bqo40ae31g6ca",
+  "name": "Lions Gate Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "231 East 15th St, North Vancouver, BC, V7L 2L7",
+  "latitude": 49.321096,
+  "longitude": -123.067796,
+  "website": "https://www.vch.ca/en/location-service/emergency-department-lions-gate-hospital",
+  "audience": "allAges",
+  "description": "Full service hospital",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 225,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp1jmnex001cqo40rdxc7zjg",
+  "name": "Mount Saint Joseph Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "3080 Prince Edward St, Vancouver, BC, V5T 3N4",
+  "latitude": 49.257914,
+  "longitude": -123.095204,
+  "website": "https://www.providencehealthcare.org/hospitals-residences/mount-saint-joseph-hospital",
+  "audience": "allAges",
+  "description": "Full service hospital.\nHours: 8am to 8pm",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 120,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp1qhgyt0000n145eqo1j4v4",
+  "name": "UBC Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "2211 Wesbrook Mall, Vancouver, BC, V6T 2B5",
+  "latitude": 49.264067,
+  "longitude": -123.245344,
+  "website": "https://www.vch.ca/en/location-service/emergency-department-ubc-hospital",
+  "audience": "allAges",
+  "description": "Hours: 8am to 8pm",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 75,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp1u92c5001rpa42n6eke8bx",
+  "name": "REACH Urgent and Primary Care Centre",
+  "status": "published",
+  "type": "upcc",
+  "address": "1145 Commercial Drive, Vancouver, BC, V5L 3X3",
+  "latitude": 49.274416,
+  "longitude": -123.069684,
+  "website": "https://www.reachcentre.bc.ca/upcc",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency. X-ray and lab services available off-site.\nHours: Mon-Sat: 8am to 10pm\nSun: 9am to 5pm",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp1ub99v0026pa42bm3ts3s0",
+  "name": "Northeast Urgent and Primary Care Centre",
+  "status": "published",
+  "type": "upcc",
+  "address": "102-2788 E. Hastings St., Vancouver, BC V5K 1Z9",
+  "latitude": 49.281145,
+  "longitude": -123.047057,
+  "website": "https://www.vch.ca/en/location/northeast-urgent-and-primary-care-centre-upcc",
+  "audience": "allAges",
+  "description": "X-ray and lab services available off-site.\nHours:\nMon-Sat: 8am to 10pm\nSun: 9am to 5pm",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp1udh1q002lpa423g8e05pv",
+  "name": "Squamish General Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "38140 Behrner Drive, Squamish, BC, V8B 0J3",
+  "latitude": 49.698583,
+  "longitude": -123.140628,
+  "website": "https://www.vch.ca/en/location-service/emergency-department-squamish-general-hospital",
+  "audience": "allAges",
+  "description": "Full service hospital.",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 165,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp1uf2tj002tpa42cmalvzzc",
+  "name": "Whistler Health Care Centre",
+  "status": "published",
+  "type": "emergency",
+  "address": "4380 Lorimer Road, Whistler, BC, V0N 18B",
+  "latitude": 50.11982,
+  "longitude": -122.955186,
+  "website": "https://www.vch.ca/en/location/whistler-health-care-centre",
+  "audience": "allAges",
+  "description": "Emergency department\nHours: 8am to 10pm",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 15,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp1ug82t0031pa42pl91w1lx",
+  "name": "Pemberton Health Centre",
+  "status": "published",
+  "type": "emergency",
+  "address": "1403 Portage Road, Pemberton, BC, V0N 2L0",
+  "latitude": 50.321081,
+  "longitude": -122.804414,
+  "website": "https://www.vch.ca/en/location/pemberton-health-centre",
+  "audience": "allAges",
+  "description": "Emergency department\nHours: 8:30am to 8:30pm",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 105,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8weced0002p543tviehu5v",
+  "name": "Southeast Urgent and Primary Care Centre",
+  "status": "published",
+  "type": "upcc",
+  "address": "5880 Victoria Drive, Vancouver, BC V5P 3W9",
+  "latitude": 49.230575,
+  "longitude": -123.06518,
+  "website": "https://www.vch.ca/en/location/southeast-urgent-and-primary-care-centre",
+  "audience": "allAges",
+  "description": "X-ray and lab services available off-site.\nHours: Mon-Sat: 8am to 10pm\nSun: 9am to 5pm",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8wkcch000hp543wvdt87cr",
+  "name": "Burnaby Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "3935 Kincaid Street, Burnaby, BC, V5G 2X6",
+  "latitude": 49.248776,
+  "longitude": -123.016837,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/E/8/emergency----burnaby-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8wpahy000ip5437yhg4jv3",
+  "name": "Eagle Ridge Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "475 Guildford Way, Port Moody, BC, V3H 3W9",
+  "latitude": 49.285359,
+  "longitude": -122.824056,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/2/4/emergency---eagle-ridge-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8wu1f7000jp543uw4ii2tj",
+  "name": "Peace Arch Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "15521 Russell Avenue, White Rock, BC, V4B 2R4",
+  "latitude": 49.029741,
+  "longitude": -122.793026,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/6/6/emergency---peace-arch-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8wvsqq000kp5438qb8hs6k",
+  "name": "Ridge Meadows Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "11666 Laity Street, Maple Ridge, BC, V2X 7G5",
+  "latitude": 49.215317,
+  "longitude": -122.630106,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/5/7/emergency---ridge-meadows-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8wyd27000lp543w3jczxmw",
+  "name": "Royal Columbian Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "330 East Columbia Street, New Westminster, BC, V3L 3W7",
+  "latitude": 49.226603,
+  "longitude": -122.892266,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/D/E/emergency---royal-columbian-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8xavwr000np543qere28rd",
+  "name": "Edmonds UPCC",
+  "status": "published",
+  "type": "upcc",
+  "address": "Unit 201, 7315 Edmonds St, Burnaby, BC V3N 1A7",
+  "latitude": 49.218947,
+  "longitude": -122.951261,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/9/D/urgent-primary-care-centre---edmonds",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency.\nHours:\nMon-Fri: 5pm to 9pm\nSat: 2pm to 8pm\nSun: 12pm to 6pm\nTo speak with a Fraser Health Virtual Care clinician now: 1-800-314-0999 10am to 10pm, seven days a week.",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8xdt66000op543a5c8j4i0",
+  "name": "Metrotown UPCC",
+  "status": "published",
+  "type": "upcc",
+  "address": "Unit 102 - 4555 Kingsway, Burnaby, BC V5H 4T8",
+  "latitude": 49.230061,
+  "longitude": -123.002786,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/D/7/metrotown-urgent-and-primary-care-centre",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency.\nHours: 9am to 8pm\nTo speak with a Fraser Health Virtual Care clinician now: 1-800-314-0999 10am to 10pm, seven days a week.",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8xhmqg000pp543gdin4eiy",
+  "name": "Port Moody UPCC",
+  "status": "published",
+  "type": "upcc",
+  "address": "3105 Murray St, Port Moody, BC V3H 1X3",
+  "latitude": 49.2784156,
+  "longitude": -122.8400973,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/F/9/urgent-and-primary-care-centre---port-moody",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency.\nHours: 9am to 8pm\nTo speak with a Fraser Health Virtual Care clinician now: 1-800-314-0999 10am to 10pm, seven days a week.",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8xlc3o000qp5437vsrvf0v",
+  "name": "Surrey Newton UPCC",
+  "status": "published",
+  "type": "upcc",
+  "address": "6830 King George Blvd, Surrey, BC V3W 4Z9",
+  "latitude": 49.126539,
+  "longitude": -122.845132,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/0/1/urgent-and-primary-care-centre---surrey-newton",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency.\nHours: Mon-Fri: 2pm to 9pm\nSat-Sun: 9am to 9pm\nTo speak with a Fraser Health Virtual Care clinician now: 1-800-314-0999 10am to 10pm, seven days a week.",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8xpsx6000rp543j0dhevvj",
+  "name": "Surrey Whalley UPCC",
+  "status": "published",
+  "type": "upcc",
+  "address": "9639 137a St Unit G2, Surrey, BC V3T 0M1",
+  "latitude": 49.177995,
+  "longitude": -122.842549,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/E/3/urgent-primary-care-centre---surrey",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency.\nHours: 9am to 9pm\nTo speak with a Fraser Health Virtual Care clinician now: 1-800-314-0999 10am to 10pm, seven days a week.",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8xuydi000sp54370z8b274",
+  "name": "Sechelt Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "5544 Sunshine Coast Highway, Sechelt, BC V0N 3A0",
+  "latitude": 49.47538,
+  "longitude": -123.749473,
+  "website": "https://www.vch.ca/en/location-service/emergency-department-sechelt-shishalh-hospital",
+  "audience": "allAges",
+  "description": "Full service hospital",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 330,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8xzmxm000tp5434t92c0r5",
+  "name": "qathet General Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "5000 Joyce Avenue, Powell River, BC V8A 5R3",
+  "latitude": 49.850835,
+  "longitude": -124.518373,
+  "website": "https://www.vch.ca/en/location-service/emergency-department-qathet-general-hospital",
+  "audience": "allAges",
+  "description": "Full service hospital",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 90,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8y4dz0000up543mwjn2cyc",
+  "name": "North Vancouver Centre Urgent and Primary Care Centre",
+  "status": "published",
+  "type": "upcc",
+  "address": "221 West Esplanade, Suite 200, 2nd Floor, North Vancouver, BC V7M 3J3",
+  "latitude": 49.31233,
+  "longitude": -123.083585,
+  "website": "https://www.vch.ca/en/location/north-vancouver-urgent-and-primary-care-centre",
+  "audience": "allAges",
+  "description": "X-ray services available on-site. Lab services available off-site.\nHours:\nMon-Sat: 8am to 10pm\nSun: 9am to 5pm",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8y92nn000vp543pelqkbgw",
+  "name": "Delta Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "5800 Mountain View Blvd, Delta BC, V4K 3V6",
+  "latitude": 49.085866,
+  "longitude": -123.061768,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/8/7/emergency---delta-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8yb75j000wp5437cdmn5pr",
+  "name": "Abbotsford Regional Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "32900 Marshall Road, Abbotsford, BC, V2S 0C2",
+  "latitude": 49.036955,
+  "longitude": -122.312559,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/E/2/emergency---abbotsford-regional-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8ych5p000xp543839122fj",
+  "name": "Chilliwack General Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "45600 Menholm Road, Chilliwack, BC, V2P 1P7",
+  "latitude": 49.166735,
+  "longitude": -121.963847,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/E/3/emergency---chilliwack-general-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8yds7a000yp543g2gsgbix",
+  "name": "Langley Memorial Hospital",
+  "status": "published",
+  "type": "emergency",
+  "address": "22051 Fraser Highway, Langley, BC, V4H 4H4",
+  "latitude": 49.094869,
+  "longitude": -122.612407,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/D/5/emergency---langley-memorial-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8yge40000zp543gdj9z2zk",
+  "name": "Abbotsford UPCC",
+  "status": "published",
+  "type": "upcc",
+  "address": "2692 Clearbrook Rd, Abbotsford BC V2Y 4N8",
+  "latitude": 49.050858,
+  "longitude": -122.337022,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/E/7/urgent-and-primary-care-centre---abbotsford",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency.\nHours: \nMon - Sun: 9am to 8pm. \nTo speak with a Fraser Health Virtual Care clinician now: 1-800-314-0999 10am to 10pm, seven days a week.",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clp8yjbql0010p543h8pa02z3",
+  "name": "Ridge Meadows UPCC",
+  "status": "published",
+  "type": "upcc",
+  "address": "121-11900 Haney Place, Maple Ridge, BC V2X 8R9",
+  "latitude": 49.21798,
+  "longitude": -122.5999987,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/F/C/urgent-primary-care-centre---ridge-meadows",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency.\nHours: 9am to 8pm\nTo speak with a Fraser Health Virtual Care clinician now: 1-800-314-0999 10am to 10pm, seven days a week.",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clpkg5qm40000pq41pihmlb48",
+  "name": "Richmond City Centre Urgent and Primary Care Centre",
+  "status": "published",
+  "type": "upcc",
+  "address": "Unit 110 - 4671 No. 3 Road, Richmond, BC V6X 2C3",
+  "latitude": 49.182207,
+  "longitude": -123.1362665,
+  "website": "https://www.vch.ca/en/location/richmond-city-centre-urgent-and-primary-care-centre",
+  "audience": "allAges",
+  "description": "X-ray services available on-site. Lab services available off-site.\nHours: Mon-Sat: 8am to 10pm\nSun: 9am to 5pm",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "cls0uvadt9asfmo47yvw8sqvf",
+  "name": "Surrey Memorial Hospital Adult",
+  "status": "published",
+  "type": "emergency",
+  "address": "13750 96th Avenue, Surrey, BC, V3V 1Z2",
+  "latitude": 49.176531,
+  "longitude": -122.841399,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/5/9/emergency---surrey-memorial-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "cls0uxgp69asgmo479vh3p9kf",
+  "name": "Surrey Memorial Hospital Pediatrics",
+  "status": "published",
+  "type": "emergency",
+  "address": "13750 96th Avenue, Surrey, BC, V3V 1Z2",
+  "latitude": 49.1755,
+  "longitude": -122.843,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/5/9/emergency---surrey-memorial-hospital",
+  "audience": "allAges",
+  "description": "",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clubmk6pw417ut64umefmtq5o",
+  "name": "Richmond East Urgent and Primary Care Centre",
+  "status": "published",
+  "type": "upcc",
+  "address": "#95 - 10551 Shellbridge Way, Richmond, BC V6X 2W9",
+  "latitude": 49.1870948,
+  "longitude": -123.1077176,
+  "website": "https://www.vch.ca/en/location/richmond-east-urgent-and-primary-care-centre-upcc",
+  "audience": "allAges",
+  "description": "X-ray services available on-site. Lab services available off-site.\nHours: Mon - Sat: 8am \u2013 10pm\nSun: 9am to 5pm",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clwzle062002a6niqpawb81di",
+  "name": "Chilliwack UPCC",
+  "status": "published",
+  "type": "upcc",
+  "address": "#104-7955 Evans Road, Chilliwack, BC V2R 5R7",
+  "latitude": 49.1460087,
+  "longitude": -121.9807703,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/8/3/Urgent-and-Primary-Care-Centre---Chilliwack",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency.\nHours: \nMon-Fri: 12 noon pm to 8pm\nSat-Sun & Stat Holidays: 9am to 8pm\nTo speak with a Fraser Health Virtual Care clinician now: 1-800-314-0999 10am to 10pm, seven days a week.",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clwzli44z003g6niqeamxklp5",
+  "name": "Langley UPCC",
+  "status": "published",
+  "type": "upcc",
+  "address": "#202-20434 64th Ave, Langley, BC V2Y 1N4",
+  "latitude": 49.1050027,
+  "longitude": -122.6522436,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/F/4/urgent-and-primary-care-centre-langley",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency.\nHours:  9am to 8pm daily\n\nTo speak with a Fraser Health Virtual Care clinician now: 1-800-314-0999 10am to 10pm, seven days a week.",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "clwzljuh2003h6niq6zx8vujr",
+  "name": "Mission UPCC",
+  "status": "published",
+  "type": "upcc",
+  "address": "#304\u201332555 London Avenue, Mission, BC V0M 1H0",
+  "latitude": 49.1302205,
+  "longitude": -122.3181252,
+  "website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/3/D/Urgent-and-Primary-Care-Centre---Mission",
+  "audience": "allAges",
+  "description": "Patients will be seen according to urgency.\nHours: 9am to 8pm\nTo speak with a Fraser Health Virtual Care clinician now: 1-800-314-0999 10am to 10pm, seven days a week.",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "cm41nasze2389zotbsny3bzk6",
+  "name": "Vancouver City Centre Urgent and Primary Care Centre",
+  "status": "published",
+  "type": "upcc",
+  "address": "188 Nelson Street, Vancouver, BC, V6B 1A9",
+  "latitude": 49.27579444052,
+  "longitude": -123.1180550115052,
+  "website": "https://www.vch.ca/en/location/vancouver-city-centre-urgent-primary-care-centre",
+  "audience": "allAges",
+  "description": "X-ray services available on-site. Lab services available off-site.\nHours:\nMon-Sat: 8am to 10pm\nSun: 9am to 5pm",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "cmndrvl7425a48bf5cjc3mtwm",
+  "name": "UBC Urgent and Primary Care Centre",
+  "status": "published",
+  "type": "upcc",
+  "address": "6165 Agronomy Road, Vancouver BC V6T 1Z3",
+  "latitude": 49.2617,
+  "longitude": -123.24611,
+  "website": "https://www.vch.ca/UBC-UPCC",
+  "audience": "allAges",
+  "description": "UBC UPCC has X-ray services available on-site. \nLab services available off-site. \nHours: \nMon - Sat: 8am \u2013 10pm \nSun: 9am to 5pm",
+  "showWaitTimes": false,
+  "waitTime": {
+   "waitTimeMinutes": 0,
+   "createdAt": "2026-11-01T00:35:00.000Z"
+  }
+ },
+ {
+  "id": "draftsite",
+  "name": "Draft site",
+  "status": "draft",
+  "type": "upcc",
+  "showWaitTimes": true,
+  "waitTime": {
+   "waitTimeMinutes": 5
+  }
+ }
+]

@@ -1,0 +1,6 @@
+# Small set used by the scheduled collector (keeps each Actions run fast)
+requests==2.32.3
+SQLAlchemy==2.0.36
+psycopg2-binary==2.9.10
+pandas==2.2.3
+python-dotenv==1.0.1

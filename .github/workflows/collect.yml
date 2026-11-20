@@ -1,0 +1,28 @@
+name: collect
+
+on:
+  schedule:
+    # Every 15 minutes (UTC). Off the hour on purpose: GitHub delays or drops
+    # more scheduled runs at :00 when it is busy.
+    - cron: "4,19,34,49 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-collector.txt
+      - run: python collector/run_loop.py --polls 1
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}

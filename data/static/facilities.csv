@@ -1,0 +1,42 @@
+facility_id,name,type,authority,metro_van,lat,lon
+clp033k9o0000qo413bjy9a91,Vancouver General Hospital,ED,VCH,true,49.262407,-123.124461
+clp03447z0001qo41ttu19nbt,BC Children's Hospital,ED,PHSA,true,49.2454172,-123.1235782
+clp1jhk0f0019qo40rmp9sryp,Richmond Hospital,ED,VCH,true,49.168873,-123.146325
+clp1ji98i001aqo409dikn0s1,St. Paul's Hospital,ED,PHC,true,49.280596,-123.129001
+clp1jjdg4001bqo40ae31g6ca,Lions Gate Hospital,ED,VCH,true,49.321096,-123.067796
+clp1jmnex001cqo40rdxc7zjg,Mount Saint Joseph Hospital,ED,PHC,true,49.257914,-123.095204
+clp1qhgyt0000n145eqo1j4v4,UBC Hospital,ED,VCH,true,49.264067,-123.245344
+clp1u92c5001rpa42n6eke8bx,REACH Urgent and Primary Care Centre,UPCC,VCH,true,49.274416,-123.069684
+clp1ub99v0026pa42bm3ts3s0,Northeast Urgent and Primary Care Centre,UPCC,VCH,true,49.281145,-123.047057
+clp1udh1q002lpa423g8e05pv,Squamish General Hospital,ED,VCH,false,49.698583,-123.140628
+clp1uf2tj002tpa42cmalvzzc,Whistler Health Care Centre,ED,VCH,false,50.11982,-122.955186
+clp1ug82t0031pa42pl91w1lx,Pemberton Health Centre,ED,VCH,false,50.321081,-122.804414
+clp8weced0002p543tviehu5v,Southeast Urgent and Primary Care Centre,UPCC,VCH,true,49.230575,-123.06518
+clp8wkcch000hp543wvdt87cr,Burnaby Hospital,ED,FHA,true,49.248776,-123.016837
+clp8wpahy000ip5437yhg4jv3,Eagle Ridge Hospital,ED,FHA,true,49.285359,-122.824056
+clp8wu1f7000jp543uw4ii2tj,Peace Arch Hospital,ED,FHA,true,49.029741,-122.793026
+clp8wvsqq000kp5438qb8hs6k,Ridge Meadows Hospital,ED,FHA,true,49.215317,-122.630106
+clp8wyd27000lp543w3jczxmw,Royal Columbian Hospital,ED,FHA,true,49.226603,-122.892266
+clp8xavwr000np543qere28rd,Edmonds UPCC,UPCC,FHA,true,49.218947,-122.951261
+clp8xdt66000op543a5c8j4i0,Metrotown UPCC,UPCC,FHA,true,49.230061,-123.002786
+clp8xhmqg000pp543gdin4eiy,Port Moody UPCC,UPCC,FHA,true,49.2784156,-122.8400973
+clp8xlc3o000qp5437vsrvf0v,Surrey Newton UPCC,UPCC,FHA,true,49.126539,-122.845132
+clp8xpsx6000rp543j0dhevvj,Surrey Whalley UPCC,UPCC,FHA,true,49.177995,-122.842549
+clp8xuydi000sp54370z8b274,Sechelt Hospital,ED,VCH,false,49.47538,-123.749473
+clp8xzmxm000tp5434t92c0r5,qathet General Hospital,ED,VCH,false,49.850835,-124.518373
+clp8y4dz0000up543mwjn2cyc,North Vancouver Centre Urgent and Primary Care Centre,UPCC,VCH,true,49.31233,-123.083585
+clp8y92nn000vp543pelqkbgw,Delta Hospital,ED,FHA,true,49.085866,-123.061768
+clp8yb75j000wp5437cdmn5pr,Abbotsford Regional Hospital,ED,FHA,false,49.036955,-122.312559
+clp8ych5p000xp543839122fj,Chilliwack General Hospital,ED,FHA,false,49.166735,-121.963847
+clp8yds7a000yp543g2gsgbix,Langley Memorial Hospital,ED,FHA,true,49.094869,-122.612407
+clp8yge40000zp543gdj9z2zk,Abbotsford UPCC,UPCC,FHA,false,49.050858,-122.337022
+clp8yjbql0010p543h8pa02z3,Ridge Meadows UPCC,UPCC,FHA,true,49.21798,-122.5999987
+clpkg5qm40000pq41pihmlb48,Richmond City Centre Urgent and Primary Care Centre,UPCC,VCH,true,49.182207,-123.1362665
+cls0uvadt9asfmo47yvw8sqvf,Surrey Memorial Hospital Adult,ED,FHA,true,49.176531,-122.841399
+cls0uxgp69asgmo479vh3p9kf,Surrey Memorial Hospital Pediatrics,ED,FHA,true,49.1755,-122.843
+clubmk6pw417ut64umefmtq5o,Richmond East Urgent and Primary Care Centre,UPCC,VCH,true,49.1870948,-123.1077176
+clwzle062002a6niqpawb81di,Chilliwack UPCC,UPCC,FHA,false,49.1460087,-121.9807703
+clwzli44z003g6niqeamxklp5,Langley UPCC,UPCC,FHA,true,49.1050027,-122.6522436
+clwzljuh2003h6niq6zx8vujr,Mission UPCC,UPCC,FHA,false,49.1302205,-122.3181252
+cm41nasze2389zotbsny3bzk6,Vancouver City Centre Urgent and Primary Care Centre,UPCC,VCH,true,49.27579444052,-123.1180550115052
+cmndrvl7425a48bf5cjc3mtwm,UBC Urgent and Primary Care Centre,UPCC,VCH,true,49.2617,-123.24611
