@@ -89,8 +89,10 @@ def recent_bias(engine, now) -> dict[str, float]:
 
 def already_ran(engine, now) -> bool:
     p = query("select max(made_at) as m from predictions where model_name = 'main'", engine=engine)
-    last = p["m"].iloc[0]
-    return pd.notna(last) and (pd.Timestamp(now) - pd.to_datetime(last, utc=True)) < pd.Timedelta("40min")
+    last = pd.to_datetime(p["m"], utc=True).iloc[0]
+    if pd.isna(last):
+        return False
+    return (now - last) < pd.Timedelta(minutes=40)
 
 
 def log_run(engine, version, name, rows, mae, now, extra=None):
