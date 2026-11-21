@@ -2,4 +2,7 @@ week_start,week_end,epi_week,flu_level,rsv_level,covid_level,summary,source_url
 2026-09-20,2026-09-26,38,1.5,1,1.5,"COVID-19 and influenza activity are low-to-moderate; RSV remains low.",https://www.bccdc.ca/Health-Info-Site/Documents/Respiratory_data/respiratory_surveillance_2026-10-01.pdf
 2026-10-04,2026-10-10,40,2,1,1.5,"Influenza activity is moderate; COVID-19 is low-to-moderate; RSV remains low.",https://www.bccdc.ca/Health-Info-Site/Documents/Respiratory_data/respiratory_surveillance_2026-10-15.pdf
 2026-10-11,2026-10-17,41,2,1,1.5,"Influenza activity is moderate; COVID-19 is low-to-moderate; RSV remains low.",https://www.bccdc.ca/Health-Info-Site/Documents/Respiratory_data/respiratory_surveillance_2026-10-22.pdf
+2026-10-18,2026-10-24,42,2,1,1.5,"Influenza activity is moderate; COVID-19 is low-to-moderate; RSV remains low.",https://www.bccdc.ca/Health-Info-Site/Documents/Respiratory_data/respiratory_surveillance_2026-10-29.pdf
+2026-10-25,2026-10-31,43,2,1,1.5,"Influenza activity is moderate; COVID-19 is low-to-moderate; RSV remains low.",https://www.bccdc.ca/Health-Info-Site/Documents/Respiratory_data/respiratory_surveillance_2026-11-05.pdf
 2026-11-01,2026-11-07,44,2,1,1.5,"Influenza activity is moderate; COVID-19 is low-to-moderate; RSV remains low.",https://www.bccdc.ca/health-professionals/data-reports/respiratory-virus-data
+2026-11-08,2026-11-14,45,2,1,2,"Influenza activity is moderate; COVID-19 is moderate; RSV remains low.",https://www.bccdc.ca/Health-Info-Site/Documents/Respiratory_data/respiratory_surveillance_2026-11-19.pdf

@@ -6,6 +6,7 @@ All timestamps are stored in UTC.
 """
 from __future__ import annotations
 
+import functools
 import os
 from pathlib import Path
 
@@ -134,6 +135,7 @@ def _normalise_url(url: str) -> str:
     return url
 
 
+@functools.lru_cache(maxsize=None)  # reuse one engine (and its connection pool) per process
 def get_engine(local: bool = False, sample: bool = False) -> Engine:
     """Postgres when DATABASE_URL is set. Otherwise local.db (local=True) or sample.db."""
     url = os.getenv("DATABASE_URL", "").strip()
