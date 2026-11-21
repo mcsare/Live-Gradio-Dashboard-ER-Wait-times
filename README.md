@@ -11,7 +11,7 @@ Wait times are for general information only. In an emergency, call 911.
 | Job | Script | Schedule | Writes |
 |---|---|---|---|
 | Collector | `collector/run_loop.py` | GitHub Actions, every 15 min | ed_waits, facilities, raw_polls, poll_log, weather_hourly |
-| Model job | `model/retrain_and_predict.py` (to do) | GitHub Actions, hourly | predictions, model_runs |
+| Model job | `model/retrain_and_predict.py` | GitHub Actions, hourly | predictions, model_runs |
 | Dashboard | `app.py` (to do) | Hugging Face Space | reads only |
 
 All three share one Postgres database (Neon). Without `DATABASE_URL` the dashboard falls back to `data/sample.db`.
@@ -37,6 +37,32 @@ All three share one Postgres database (Neon). Without `DATABASE_URL` the dashboa
 5. **Turn on the schedule.** Actions tab, enable workflows if asked, open **collect**, Run workflow. A green tick means it works. After that it runs on its own every 15 minutes.
 6. **Check daily:** `python scripts/check_gaps.py`. GitHub also emails whoever last edited the workflow when a run fails.
 
+## Triggering the jobs reliably
+
+GitHub's own schedule did not fire on this repo, so cron-job.org triggers both workflows through the GitHub API (POST, headers `Accept: application/vnd.github+json`, `Authorization: Bearer <token>`, `X-GitHub-Api-Version: 2022-11-28`, body `{"ref":"main"}`):
+
+| cron-job.org job | URL ends with | Schedule |
+|---|---|---|
+| er-pulse collect | `/actions/workflows/collect.yml/dispatches` | every 15 min |
+| er-pulse model | `/actions/workflows/model.yml/dispatches` | every hour at :12 |
+
+Full URL: `https://api.github.com/repos/OWNER/REPO/actions/workflows/<file>/dispatches`. A test run should return 204.
+
+## Model job
+
+Every hour it scores past predictions (printed in the run log), retrains, and writes a forecast 1, 2 and 3 hours ahead for every site with a fresh wait:
+
+| model_name | What it is |
+|---|---|
+| persistence | Wait later = wait now |
+| seasonal | Mean wait for that site at that hour of day, data so far |
+| main | Gradient boosted trees predicting the change from the current wait, retrained hourly on all data, then bias corrected by the site's mean error over the last 24 h (`predicted_raw` keeps the uncorrected value) |
+| day1_frozen | The same model trained only on the first 24 hours and never updated, to show how much retraining helps |
+
+Predictions are append only and scored against the wait observed nearest the target time (within 15 min) by `model.features.score()`. Features: current wait, wait 1 h ago, change over the hour, 3 h mean, same time yesterday, hour now and at target, weekend or holiday, site, authority, ED or UPCC, temperature and rain at the target hour, weekly flu level. Weekday is left out until there is a full week of data.
+
+Model code freezes on Nov 24 so the correction chart compares one model over time.
+
 ## Data sources and credits
 
 | Source | What | How often | Access |
@@ -56,6 +82,8 @@ All three share one Postgres database (Neon). Without `DATABASE_URL` the dashboa
 
 ```
 python -m pytest tests -q
+python tests/simulate_data.py .                                   (2 days of simulated waits in data/local.db)
+python model/retrain_and_predict.py --local --now 2026-11-21T12:00Z
 python scripts/init_db.py --local
 python collector/run_loop.py --local --from-file tests/fixture_wait_times.json
 python scripts/check_gaps.py --local

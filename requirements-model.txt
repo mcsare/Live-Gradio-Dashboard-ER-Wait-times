@@ -1,0 +1,3 @@
+# Used by the hourly model job
+-r requirements-collector.txt
+scikit-learn==1.5.2
