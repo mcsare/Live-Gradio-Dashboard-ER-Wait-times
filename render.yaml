@@ -1,0 +1,17 @@
+# Render Blueprint: free web service running the Gradio dashboard.
+# Render dashboard > New > Blueprint > pick this repo. It asks for DATABASE_URL once.
+services:
+  - type: web
+    name: er-pulse
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.8"
+      - key: DATABASE_URL
+        sync: false
