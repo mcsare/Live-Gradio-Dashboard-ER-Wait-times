@@ -1,6 +1,6 @@
 # ER Pulse
 
-Live dashboard: (Hugging Face Space link, added Nov 22)
+Live dashboard: https://huggingface.co/spaces/HF_USERNAME/er-pulse (replace once the Space exists; the first visit after a quiet spell takes 30 to 60 seconds to wake it)
 
 Audience: ED operations and patient flow managers in Metro Vancouver deciding when to add staff and when to start "consider an urgent care centre" messaging.
 
@@ -12,7 +12,7 @@ Wait times are for general information only. In an emergency, call 911.
 |---|---|---|---|
 | Collector | `collector/run_loop.py` | GitHub Actions, every 15 min | ed_waits, facilities, raw_polls, poll_log, weather_hourly |
 | Model job | `model/retrain_and_predict.py` | GitHub Actions, hourly | predictions, model_runs |
-| Dashboard | `app.py` (to do) | Hugging Face Space | reads only |
+| Dashboard | `app.py` + `dashboard/` | Hugging Face Space, deployed by `deploy_space.yml` on every push | reads only |
 
 All three share one Postgres database (Neon). Without `DATABASE_URL` the dashboard falls back to `data/sample.db`.
 
@@ -62,6 +62,47 @@ Every hour it scores past predictions (printed in the run log), retrains, and wr
 Predictions are append only and scored against the wait observed nearest the target time (within 15 min) by `model.features.score()`. Features: current wait, wait 1 h ago, change over the hour, 3 h mean, same time yesterday, hour now and at target, weekend or holiday, site, authority, ED or UPCC, temperature and rain at the target hour, weekly flu level. Weekday is left out until there is a full week of data.
 
 Model code freezes on Nov 24 so the correction chart compares one model over time.
+
+## Dashboard
+
+Five tabs: Live now (KPIs, map, next 3 hours), Explore (hour by weekday heatmap, time series, dry vs rain), Forecast vs actual (predicted vs actual, rolling 24 h error by model, error and skill table, bias correction, error by hour), Insights and actions (recomputed from the data on every refresh), About the data. Database reads are cached for 60 seconds and the page refreshes itself every minute.
+
+Run it locally:
+
+```
+pip install -r requirements.txt
+python app.py
+```
+
+Then open http://localhost:7860. With DATABASE_URL in .env it shows the live data; without it, it uses data/sample.db.
+
+To try it on simulated data with no database:
+
+```
+python tests/simulate_data.py .
+(run the model job hour by hour over it, see Testing offline)
+DATABASE_URL=sqlite:///data/local.db python app.py
+```
+
+### Hugging Face Space
+
+1. Create a Space at huggingface.co/new-space: SDK Gradio, hardware free CPU, public.
+2. Space Settings, Variables and secrets: add secret `DATABASE_URL` (ideally the read only user below).
+3. Create a Hugging Face access token with Write permission (huggingface.co/settings/tokens).
+4. GitHub repo Settings, Secrets and variables, Actions: add secret `HF_TOKEN` (the token) and, on the Variables tab, variable `HF_SPACE` = `your-hf-username/space-name`.
+5. Actions tab, deploy_space, Run workflow. After that every push that touches the dashboard redeploys it.
+
+Read only database user for the Space (run once in the Neon SQL Editor, choose your own password):
+
+```
+create role dashboard_reader with login password 'CHOOSE_A_PASSWORD';
+grant connect on database neondb to dashboard_reader;   -- neondb is the default name; use yours if different
+grant usage on schema public to dashboard_reader;
+grant select on all tables in schema public to dashboard_reader;
+alter default privileges in schema public grant select on tables to dashboard_reader;
+```
+
+Then use the same connection string as before with `dashboard_reader:CHOOSE_A_PASSWORD` in place of the owner's user and password.
 
 ## Data sources and credits
 

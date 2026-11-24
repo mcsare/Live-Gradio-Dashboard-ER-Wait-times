@@ -1,0 +1,47 @@
+name: deploy_space
+
+# Copies the dashboard to the Hugging Face Space on every push to main that touches it.
+# Needs: repo secret HF_TOKEN (a Hugging Face write token) and repo variable HF_SPACE (e.g. yourname/er-pulse).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app.py"
+      - "db.py"
+      - "dashboard/**"
+      - "model/features.py"
+      - "requirements*.txt"
+      - "deploy/**"
+      - "data/sample.db"
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install huggingface_hub==0.36.0
+      - name: Upload to the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE: ${{ vars.HF_SPACE }}
+        run: |
+          python - <<'EOF'
+          import os
+          from huggingface_hub import HfApi
+          api = HfApi(token=os.environ["HF_TOKEN"])
+          space = os.environ["HF_SPACE"]
+          api.upload_folder(
+              repo_id=space, repo_type="space", folder_path=".",
+              allow_patterns=["app.py", "db.py", "dashboard/*.py", "model/__init__.py", "model/features.py",
+                              "requirements.txt", "requirements-collector.txt", "data/sample.db"],
+              commit_message="Deploy from GitHub")
+          api.upload_file(repo_id=space, repo_type="space", path_or_fileobj="deploy/space_README.md",
+                          path_in_repo="README.md", commit_message="Space settings")
+          print(f"Deployed to https://huggingface.co/spaces/{space}")
+          EOF
