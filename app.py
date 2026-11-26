@@ -15,17 +15,6 @@ load_dotenv()
 
 from db import get_engine, metadata  # noqa: E402
 
-# Hugging Face free accounts can only host Gradio Spaces on ZeroGPU hardware, which refuses to
-# start unless the app declares at least one @spaces.GPU function. This dashboard needs no GPU,
-# so this placeholder is never called. Off ZeroGPU (locally, PRO CPU) the decorator does nothing.
-try:
-    import spaces
-
-    @spaces.GPU(duration=5)
-    def _zerogpu_placeholder():
-        return None
-except ImportError:
-    pass
 from dashboard import charts as C  # noqa: E402
 from dashboard import data as D  # noqa: E402
 from dashboard import insights as I  # noqa: E402

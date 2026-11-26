@@ -2,5 +2,4 @@
 -r requirements-collector.txt
 scikit-learn==1.5.2
 plotly==7.1.0
-# Keep in step with sdk_version in deploy/space_README.md
 gradio==6.32.0

@@ -9,7 +9,8 @@ each horizon (60, 120, 180 min), one prediction per model:
 
   persistence   wait later = wait now
   seasonal      mean wait for that facility at that hour of day, data so far
-  main          gradient boosted trees (predicting the change from the current wait),
+  main          gradient boosted trees (predicting the change from the current wait, with the
+                site's usual wait at the target hour as one of the inputs),
                 retrained every run on all data so far,
                 then bias corrected (predicted_raw keeps the uncorrected value)
   day1_frozen   same model trained only on the first 24 hours, never updated
@@ -101,7 +102,7 @@ def log_run(engine, version, name, rows, mae, now, extra=None):
             "model_version": version, "model_name": name, "trained_at": now,
             "train_rows": int(len(rows)),
             "train_start": rows["t"].min().to_pydatetime(), "train_end": rows["target_time"].max().to_pydatetime(),
-            "val_mae": mae, "params_json": json.dumps({**PARAMS, **(extra or {})}),
+            "val_mae": mae, "params_json": json.dumps({**PARAMS, "features": F.FEATURES, **(extra or {})}),
         }], ["model_version"])
 
 

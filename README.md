@@ -1,6 +1,6 @@
 # ER Pulse
 
-Live dashboard: https://huggingface.co/spaces/HF_USERNAME/er-pulse (replace once the Space exists; the first visit after a quiet spell takes 30 to 60 seconds to wake it)
+Live dashboard: https://er-pulse-8sqz.onrender.com (hosted on Render's free plan; if nobody has visited for 15 minutes, the first visit takes about a minute to wake it)
 
 Audience: ED operations and patient flow managers in Metro Vancouver deciding when to add staff and when to start "consider an urgent care centre" messaging.
 
@@ -12,7 +12,7 @@ Wait times are for general information only. In an emergency, call 911.
 |---|---|---|---|
 | Collector | `collector/run_loop.py` | GitHub Actions, every 15 min | ed_waits, facilities, raw_polls, poll_log, weather_hourly |
 | Model job | `model/retrain_and_predict.py` | GitHub Actions, hourly | predictions, model_runs |
-| Dashboard | `app.py` + `dashboard/` | Hugging Face Space, deployed by `deploy_space.yml` on every push | reads only |
+| Dashboard | `app.py` + `dashboard/` | Render web service (`render.yaml`), redeploys on every push to `main` | reads only |
 
 All three share one Postgres database (Neon). Without `DATABASE_URL` the dashboard falls back to `data/sample.db`.
 
@@ -59,7 +59,7 @@ Every hour it scores past predictions (printed in the run log), retrains, and wr
 | main | Gradient boosted trees predicting the change from the current wait, retrained hourly on all data, then bias corrected by the site's mean error over the last 24 h (`predicted_raw` keeps the uncorrected value) |
 | day1_frozen | The same model trained only on the first 24 hours and never updated, to show how much retraining helps |
 
-Predictions are append only and scored against the wait observed nearest the target time (within 15 min) by `model.features.score()`. Features: current wait, wait 1 h ago, change over the hour, 3 h mean, same time yesterday, hour now and at target, weekend or holiday, site, authority, ED or UPCC, temperature and rain at the target hour, weekly flu level. Weekday is left out until there is a full week of data.
+Predictions are append only and scored against the wait observed nearest the target time (within 15 min) by `model.features.score()`. Features: current wait, wait 1 h ago, change over the hour, 3 h mean, same time yesterday, hour now and at target, the site's usual wait at the target hour (from data up to that point only), weekend or holiday, site, authority, ED or UPCC, temperature and rain at the target hour, weekly flu level. Weekday is left out until there is a full week of data.
 
 Model code freezes on Nov 24 so the correction chart compares one model over time.
 
@@ -84,15 +84,14 @@ python tests/simulate_data.py .
 DATABASE_URL=sqlite:///data/local.db python app.py
 ```
 
-### Hugging Face Space
+### Deploying on Render
 
-1. Create a Space at huggingface.co/new-space: SDK Gradio, hardware free CPU, public.
-2. Space Settings, Variables and secrets: add secret `DATABASE_URL` (ideally the read only user below).
-3. Create a Hugging Face access token with Write permission (huggingface.co/settings/tokens).
-4. GitHub repo Settings, Secrets and variables, Actions: add secret `HF_TOKEN` (the token) and, on the Variables tab, variable `HF_SPACE` = `your-hf-username/space-name`.
-5. Actions tab, deploy_space, Run workflow. After that every push that touches the dashboard redeploys it.
+1. Sign in at render.com with GitHub, then New, Blueprint, and pick this repo. Render reads `render.yaml` (free web service, `pip install -r requirements.txt`, `python app.py`).
+2. When asked, paste `DATABASE_URL` (ideally the read only user below). It is stored in Render, not in the repo.
+3. Render builds and starts the app. `autoDeploy` is on, so every push to `main` redeploys it. `app.py` listens on the `$PORT` Render provides.
+4. Optional: a cron-job.org job that opens the dashboard URL every 10 minutes keeps the free service from sleeping (useful before a demo).
 
-Read only database user for the Space (run once in the Neon SQL Editor, choose your own password):
+Read only database user for the dashboard (run once in the Neon SQL Editor, choose your own password):
 
 ```
 create role dashboard_reader with login password 'CHOOSE_A_PASSWORD';
@@ -134,5 +133,5 @@ python scripts/check_gaps.py --local
 
 * Posted waits are the health authorities' own estimates, not measured waits.
 * As of November 2026 only the VCH, Providence and BC Children's emergency departments post a wait. Fraser Health sites and the urgent care centres show "unavailable". The collector stores every site so we capture them if they come back.
-* History starts the day the collector started (Nov 20, 2026).
+* History starts the day the collector started (Nov 19, 2026, Pacific time).
 * GitHub can delay scheduled runs; gaps are logged in `poll_log`, never filled with made up values.

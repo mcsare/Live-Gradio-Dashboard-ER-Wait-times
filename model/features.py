@@ -17,9 +17,11 @@ HOLIDAYS = {pd.Timestamp(d).date() for d in ["2026-11-11", "2026-12-25", "2026-1
 
 FEATURES = ["facility_code", "authority_code", "is_ed", "horizon_min",
             "wait_now", "wait_1h_ago", "delta_1h", "mean_3h", "same_time_yesterday",
-            "hour_now", "hour_target", "off_day",
+            "hour_now", "hour_target", "usual_at_target_hour", "off_day",
             "temp_c", "precip_mm", "flu_level"]
 CATEGORICAL = ["facility_code", "authority_code"]
+# usual_at_target_hour: the site's average wait at the target hour of day, using only readings
+# up to the anchor time (so training rows never see the future). Helps with the evening peaks.
 # weekday_target is computed but left out of FEATURES: with under a week of data it
 # identifies the exact date and lets the model memorise instead of generalise.
 
@@ -62,6 +64,26 @@ def _asof(left, right, left_on, value_name, tol=TOL):
     return out.drop(columns="_t")
 
 
+def _usual_at_hour(rows, waits):
+    """Add usual_at_target_hour: the facility's mean wait at hour_target (Pacific), from readings
+    at or before the anchor time t only. If that hour has not come up yet (early in collection),
+    fall back to the facility's mean wait over all hours so far."""
+    w = waits.assign(hour_target=waits["slot"].dt.tz_convert(PT).dt.hour.astype("int64"))
+    w = w.sort_values("slot")
+    g = w.groupby(["facility_id", "hour_target"])["wait_min"]
+    w["usual_at_target_hour"] = g.cumsum() / (g.cumcount() + 1)
+    r = w[["facility_id", "hour_target", "slot", "usual_at_target_hour"]].rename(columns={"slot": "_t"})
+    rows = rows.assign(hour_target=rows["hour_target"].astype("int64"))
+    out = pd.merge_asof(rows.sort_values("t"), r, left_on="t", right_on="_t",
+                        by=["facility_id", "hour_target"], direction="backward").drop(columns="_t")
+    gf = w.groupby("facility_id")["wait_min"]
+    w["_fac_mean"] = gf.cumsum() / (gf.cumcount() + 1)
+    f = w[["facility_id", "slot", "_fac_mean"]].rename(columns={"slot": "_t"})
+    out = pd.merge_asof(out, f, left_on="t", right_on="_t", by="facility_id", direction="backward")
+    out["usual_at_target_hour"] = out["usual_at_target_hour"].fillna(out["_fac_mean"])
+    return out.drop(columns=["_t", "_fac_mean"])
+
+
 def build_rows(anchors, waits, fac, wx, resp, horizons=HORIZONS, with_target=True):
     """anchors: facility_id, t (a slot with a known wait_now). Returns one row per anchor and horizon."""
     a = anchors.merge(waits.rename(columns={"slot": "t", "wait_min": "wait_now"}),
@@ -85,6 +107,7 @@ def build_rows(anchors, waits, fac, wx, resp, horizons=HORIZONS, with_target=Tru
     rows["weekday_target"] = tp.dt.weekday
     rows["off_day"] = ((tp.dt.weekday >= 5) | tp.dt.date.isin(HOLIDAYS)).astype(int)
     rows["hour_now"] = rows["t"].dt.tz_convert(PT).dt.hour
+    rows = _usual_at_hour(rows, waits)
 
     rows["wx_hour"] = rows["target_time"].dt.floor("1h")
     rows = rows.merge(wx.rename(columns={"time": "wx_hour"}), on="wx_hour", how="left")
