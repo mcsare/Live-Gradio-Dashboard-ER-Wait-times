@@ -12,7 +12,7 @@ each horizon (60, 120, 180 min), one prediction per model:
   main          gradient boosted trees (predicting the change from the current wait, with the
                 site's usual wait at the target hour as one of the inputs),
                 retrained every run on all data so far,
-                then bias corrected (predicted_raw keeps the uncorrected value)
+                then bias corrected only where a site has 12+ scored forecasts and is off by over 15 min (predicted_raw keeps the uncorrected value)
   day1_frozen   same model trained only on the first 24 hours, never updated
 
 Predictions are append only. They are scored later against what actually happened
@@ -37,6 +37,9 @@ from db import get_engine, insert_ignore, metadata, model_runs, predictions, que
 from model import features as F  # noqa: E402
 
 MIN_TRAIN_ROWS = 300
+BIAS_MIN_SCORED = 12     # a site needs at least this many scored forecasts in the last 24 h
+BIAS_MIN_MINUTES = 15    # and an average error bigger than this (either direction)
+BIAS_SHARE = 1.0         # share of the bias to subtract: 1.0 = all of it, 0.5 = half
 DAY1_VERSION = "day1-frozen"
 PARAMS = dict(loss="absolute_error", learning_rate=0.05, max_iter=300, max_leaf_nodes=15,
               min_samples_leaf=20, l2_regularization=1.0, early_stopping=False, random_state=0)
@@ -85,7 +88,8 @@ def recent_bias(engine, now) -> dict[str, float]:
               {"a": now - dt.timedelta(hours=25)}, engine=engine)
     s = F.score(p, w)
     g = s.groupby("entity_id")["error"].agg(["mean", "count"])
-    return g[g["count"] >= 3]["mean"].to_dict()   # need a few scored points before correcting
+    keep = (g["count"] >= BIAS_MIN_SCORED) & (g["mean"].abs() > BIAS_MIN_MINUTES)
+    return g[keep]["mean"].to_dict()   # only correct clear, well evidenced bias
 
 
 def already_ran(engine, now) -> bool:
@@ -206,7 +210,7 @@ def main() -> int:
     add("seasonal", "seasonal", X["seasonal"].to_numpy())
     if model is not None:
         raw = model.predict(X)
-        b = X["facility_id"].map(bias).fillna(0).to_numpy()
+        b = X["facility_id"].map(bias).fillna(0).to_numpy() * BIAS_SHARE
         add("main", version, raw, raw - b)
     if day1 is not None:
         add("day1_frozen", DAY1_VERSION, day1.predict(X))
